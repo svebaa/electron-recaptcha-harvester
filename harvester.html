@@ -1,0 +1,22 @@
+<html>
+	<body>
+		<p id="captchas-solved">Solved: 0</p>
+		<button onclick="openYoutube()">YOUTUBE</button>
+		<button onclick="startTestTask()">START TEST TASK</button>
+	</body>
+
+	<script>
+		const { getCurrentWindow } = require("@electron/remote");
+		const { ipcRenderer } = require("electron");
+
+		const currentWindow = getCurrentWindow();
+
+		function openYoutube() {
+			ipcRenderer.send("open-youtube", currentWindow.id);
+		}
+
+		function startTestTask() {
+			ipcRenderer.send("start-task", currentWindow.id);
+		}
+	</script>
+</html>

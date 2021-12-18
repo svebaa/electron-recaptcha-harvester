@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Captcha Harvester</title>
+		<script
+			src="https://www.google.com/recaptcha/api.js?onload=onloadCallback"
+			async
+			defer
+		></script>
+	</head>
+
+	<body>
+		<style>
+			body {
+				height: 100vh;
+				width: 100vw;
+				margin: 0;
+				background-color: transparent;
+				overflow: hidden;
+				-webkit-app-region: none;
+			}
+
+			#g-recaptcha-container {
+				padding: 8px;
+			}
+		</style>
+
+		<form id="captcha-form">
+			<div
+				id="recaptcha"
+				class="g-recaptcha"
+				data-sitekey="6LeWwRkUAAAAAOBsau7KpuC9AV-6J8mhw4AjC3Xz"
+				data-callback="submit"
+				data-size="invisible"
+			></div>
+		</form>
+
+		<script type="text/javascript">
+			const { getCurrentWindow } = require("@electron/remote");
+			const { ipcRenderer } = require("electron");
+
+			const currentWindow = getCurrentWindow();
+
+			const sleep = async (ms) =>
+				await new Promise((r) => setTimeout(r, ms));
+
+			async function submit() {
+				let captchaToken = document.getElementById(
+					"g-recaptcha-response"
+				).value;
+
+				ipcRenderer.send("captcha-solved", currentWindow.id, captchaToken);
+			}
+
+			function onloadCallback() {
+				try {
+					grecaptcha.reset();
+					grecaptcha.execute();
+				} catch (err) {
+					setTimeout(() => {
+						onloadCallback();
+					}, 100);
+				}
+			}
+		</script>
+	</body>
+</html>
