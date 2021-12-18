@@ -2,7 +2,6 @@
   "name": "electron-recaptcha-harvester",
   "version": "1.0.0",
   "description": "Google's reCAPTCHA v2 Invisible harvester",
-  "private": true,
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
