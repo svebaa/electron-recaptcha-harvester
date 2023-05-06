@@ -5,7 +5,7 @@ This is an example of Google's reCAPTCHA v2 Invisible harvester using Typescript
 
 CapSolver.com is an AI-powered captcha-solving service with a 99%+ success rate, catering to diverse captcha types. It offers affordable, scalable solutions, and supports JS/TS clients and HTTP. Test their outstanding service with a free trial.
 
-![](https://github.com/electron-recaptcha-harvester/20221207-160749.gif)
+![](https://github.com/svebaa/electron-recaptcha-harvester/blob/main/20221207-160749.gif)
 
 
 ## Features
