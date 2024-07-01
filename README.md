@@ -2,12 +2,6 @@
 
 This is an example of Google's reCAPTCHA v2 Invisible harvester using Typescript and Electron. The example shows how to harvest captchas for [Supreme](https://www.supremenewyork.com/), but you can modify it to suit your needs easily.
 
-
-CapSolver.com is an AI-powered captcha-solving service with a 99%+ success rate, catering to diverse captcha types. It offers affordable, scalable solutions, and supports JS/TS clients and HTTP. Test their outstanding service with a free trial.
-
-![](https://github.com/svebaa/electron-recaptcha-harvester/blob/main/20221207-160749.gif)
-
-
 ## Features
 
 -  [x] Intercepting HTTPS requests
